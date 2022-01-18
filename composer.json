@@ -17,6 +17,12 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Akeroh/db-dumper"
+        }
+    ],
     "require": {
         "php": "^8.0",
         "ext-zip": "^1.14.0",
