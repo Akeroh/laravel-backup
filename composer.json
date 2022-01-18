@@ -33,7 +33,7 @@
         "illuminate/notifications": "^8.36",
         "illuminate/support": "^8.36",
         "league/flysystem": "^1.0.49|^2.0",
-        "spatie/db-dumper": "dev-master",
+        "spatie/db-dumper": "dev-main",
         "spatie/laravel-package-tools": "^1.6.2",
         "spatie/laravel-signal-aware-command": "^1.1",
         "spatie/temporary-directory": "^2.0",
