@@ -16,7 +16,6 @@ use Spatie\Backup\Events\DumpingDatabase;
 use Spatie\Backup\Exceptions\InvalidBackupJob;
 use Spatie\DbDumper\Compressors\GzipCompressor;
 use Spatie\DbDumper\Databases\MongoDb;
-use Spatie\DbDumper\Databases\Sqlite;
 use Spatie\DbDumper\DbDumper;
 use Spatie\SignalAwareCommand\Facades\Signal;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
@@ -208,9 +207,9 @@ class BackupJob
     protected function directoriesUsedByBackupJob(): array
     {
         return $this->backupDestinations
-            ->filter(fn (BackupDestination $backupDestination) => $backupDestination->filesystemType() === 'local')
+            ->filter(fn (BackupDestination $backupDestination) => $backupDestination->filesystemType() === 'localfilesystemadapter')
             ->map(
-                fn (BackupDestination $backupDestination) => $backupDestination->disk()->getDriver()->getAdapter()->applyPathPrefix('') . $backupDestination->backupName()
+                fn (BackupDestination $backupDestination) => $backupDestination->disk()->path('') . $backupDestination->backupName()
             )
             ->each(fn (string $backupDestinationDirectory) => $this->fileSelection->excludeFilesFrom($backupDestinationDirectory))
             ->push($this->temporaryDirectory->path())
@@ -278,6 +277,10 @@ class BackupJob
         $this->backupDestinations
             ->each(function (BackupDestination $backupDestination) use ($path) {
                 try {
+                    if (! $backupDestination->isReachable()) {
+                        throw new Exception("Could not connect to disk {$backupDestination->diskName()} because: {$backupDestination->connectionError()}");
+                    }
+
                     consoleOutput()->info("Copying zip to disk named {$backupDestination->diskName()}...");
 
                     $backupDestination->write($path);
@@ -288,7 +291,9 @@ class BackupJob
                 } catch (Exception $exception) {
                     consoleOutput()->error("Copying zip failed because: {$exception->getMessage()}.");
 
-                    $this->sendNotification(new BackupHasFailed($exception, $backupDestination ?? null));
+                    $this->sendNotification(new BackupHasFailed($exception, $backupDestination));
+
+                    throw $exception;
                 }
             });
     }

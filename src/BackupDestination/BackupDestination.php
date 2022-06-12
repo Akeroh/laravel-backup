@@ -7,7 +7,6 @@ use Exception;
 use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Spatie\Backup\Exceptions\InvalidBackupDestination;
-use Spatie\Backup\Exceptions\InvalidBackupFile;
 
 class BackupDestination
 {
@@ -27,7 +26,7 @@ class BackupDestination
 
         $this->diskName = $diskName;
 
-        $this->backupName = (string)preg_replace('/[^a-zA-Z0-9.]/', '-', $backupName);
+        $this->backupName = $backupName;
     }
 
     public function disk(): Filesystem
@@ -46,7 +45,7 @@ class BackupDestination
             return 'unknown';
         }
 
-        $adapterClass = $this->disk->getDriver()->getAdapter()::class;
+        $adapterClass = $this->disk->getAdapter()::class;
 
         $filesystemType = last(explode('\\', $adapterClass));
 
@@ -82,18 +81,14 @@ class BackupDestination
 
         $handle = fopen($file, 'r+');
 
-        $hasWritten = $this->disk->getDriver()->writeStream(
+        $this->disk->getDriver()->writeStream(
             $destination,
             $handle,
-            $this->getDiskOptions()
+            $this->getDiskOptions(),
         );
 
         if (is_resource($handle)) {
             fclose($handle);
-        }
-
-        if (! $hasWritten) {
-            throw InvalidBackupFile::writeError($this->backupName());
         }
     }
 
@@ -142,7 +137,7 @@ class BackupDestination
         }
 
         try {
-            $this->disk->allFiles($this->backupName);
+            $this->disk->files($this->backupName);
 
             return true;
         } catch (Exception $exception) {
