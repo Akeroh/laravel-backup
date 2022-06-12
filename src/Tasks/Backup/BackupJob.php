@@ -16,7 +16,6 @@ use Spatie\Backup\Events\DumpingDatabase;
 use Spatie\Backup\Exceptions\InvalidBackupJob;
 use Spatie\DbDumper\Compressors\GzipCompressor;
 use Spatie\DbDumper\Databases\MongoDb;
-use Spatie\DbDumper\Databases\Sqlite;
 use Spatie\DbDumper\DbDumper;
 use Spatie\SignalAwareCommand\Facades\Signal;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
