@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-backup",
+    "name": "akeroh/laravel-backup",
     "description": "A Laravel package to backup your application",
     "keywords": [
         "spatie",
@@ -17,6 +17,12 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Akeroh/db-dumper"
+        }
+    ],
     "require": {
         "php": "^8.0",
         "ext-zip": "^1.14.0",
@@ -27,7 +33,7 @@
         "illuminate/notifications": "^9.0",
         "illuminate/support": "^9.0",
         "league/flysystem": "^2.0|^3.0",
-        "spatie/db-dumper": "^3.0",
+        "spatie/db-dumper": "dev-master",
         "spatie/laravel-package-tools": "^1.6.2",
         "spatie/laravel-signal-aware-command": "^1.2",
         "spatie/temporary-directory": "^2.0",

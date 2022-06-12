@@ -246,16 +246,11 @@ class BackupJob
     {
         return $this->dbDumpers
             ->map(function (DbDumper $dbDumper, $key) {
-                consoleOutput()->info("Dumping database {$dbDumper->getDbName()}...");
+                consoleOutput()->info("Dumping database {$dbDumper->getSchemaName()}...");
 
                 $dbType = mb_strtolower(basename(str_replace('\\', '/', get_class($dbDumper))));
 
-                $dbName = $dbDumper->getDbName();
-                if ($dbDumper instanceof Sqlite) {
-                    $dbName = $key . '-database';
-                }
-
-                $fileName = "{$dbType}-{$dbName}.{$this->getExtension($dbDumper)}";
+                $fileName = "{$dbType}-{$dbDumper->getSchemaName()}.{$this->getExtension($dbDumper)}";
 
                 if (config('backup.backup.gzip_database_dump')) {
                     $dbDumper->useCompressor(new GzipCompressor());
