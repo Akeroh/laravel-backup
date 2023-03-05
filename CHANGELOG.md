@@ -2,6 +2,93 @@
 
 All notable changes to `laravel-backup` will be documented in this file.
 
+## 8.1.7 - 2023-02-03
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/spatie/laravel-backup/pull/1637
+- Update DbDumperFactory.php by @nikosv in https://github.com/spatie/laravel-backup/pull/1640
+
+### New Contributors
+
+- @nikosv made their first contribution in https://github.com/spatie/laravel-backup/pull/1640
+
+**Full Changelog**: https://github.com/spatie/laravel-backup/compare/8.1.6...8.1.7
+
+## 8.1.6 - 2023-01-24
+
+### What's Changed
+
+- Fix error an Installation Doc by @thomasdominic in https://github.com/spatie/laravel-backup/pull/1605
+- Update high-level-overview.md by @souravtah in https://github.com/spatie/laravel-backup/pull/1607
+- Update introduction.md by @souravtah in https://github.com/spatie/laravel-backup/pull/1606
+- Add Dependabot Automation by @patinthehat in https://github.com/spatie/laravel-backup/pull/1616
+- fix: zh-TW translation by @hms5232 in https://github.com/spatie/laravel-backup/pull/1584
+- Bump stefanzweifel/git-auto-commit-action from 4.15.0 to 4.15.4 by @dependabot in https://github.com/spatie/laravel-backup/pull/1617
+- Bump ramsey/composer-install from 1 to 2 by @dependabot in https://github.com/spatie/laravel-backup/pull/1618
+- Update Readme Banner by @patinthehat in https://github.com/spatie/laravel-backup/pull/1621
+- Bump stefanzweifel/git-auto-commit-action from 4.15.4 to 4.16.0 by @dependabot in https://github.com/spatie/laravel-backup/pull/1625
+- Fix tests badge by @erikn69 in https://github.com/spatie/laravel-backup/pull/1629
+- Laravel 10.x support by @erikn69 in https://github.com/spatie/laravel-backup/pull/1631
+
+### New Contributors
+
+- @thomasdominic made their first contribution in https://github.com/spatie/laravel-backup/pull/1605
+- @souravtah made their first contribution in https://github.com/spatie/laravel-backup/pull/1607
+- @hms5232 made their first contribution in https://github.com/spatie/laravel-backup/pull/1584
+
+**Full Changelog**: https://github.com/spatie/laravel-backup/compare/8.1.5...8.1.6
+
+## 8.1.5 - 2022-10-19
+
+### What's Changed
+
+- Bump stefanzweifel/git-auto-commit-action from 4.14.1 to 4.15.0 by @dependabot in https://github.com/spatie/laravel-backup/pull/1579
+- PHP 8.2 Build by @erikn69 in https://github.com/spatie/laravel-backup/pull/1590
+- corrected some translations by @fadkeabhi in https://github.com/spatie/laravel-backup/pull/1594
+
+### New Contributors
+
+- @fadkeabhi made their first contribution in https://github.com/spatie/laravel-backup/pull/1594
+
+**Full Changelog**: https://github.com/spatie/laravel-backup/compare/8.1.4...8.1.5
+
+## 8.1.4 - 2022-10-01
+
+### What's Changed
+
+- docs: replace v7 links with v8 by @tricki in https://github.com/spatie/laravel-backup/pull/1561
+- Update adding-extra-notification-channels.md by @llabbasmkhll in https://github.com/spatie/laravel-backup/pull/1571
+- Italian translations by @massiws in https://github.com/spatie/laravel-backup/pull/1580
+
+### New Contributors
+
+- @llabbasmkhll made their first contribution in https://github.com/spatie/laravel-backup/pull/1571
+- @massiws made their first contribution in https://github.com/spatie/laravel-backup/pull/1580
+
+**Full Changelog**: https://github.com/spatie/laravel-backup/compare/8.1.3...8.1.4
+
+## 8.1.3 - 2022-08-04
+
+### What's Changed
+
+- chore: Included githubactions in the dependabot config by @naveensrinivasan in https://github.com/spatie/laravel-backup/pull/1529
+- Add phpstan by @Nielsvanpach in https://github.com/spatie/laravel-backup/pull/1530
+- Bump actions/checkout from 1 to 3 by @dependabot in https://github.com/spatie/laravel-backup/pull/1532
+- Bump stefanzweifel/git-auto-commit-action from 2.3.0 to 4.14.1 by @dependabot in https://github.com/spatie/laravel-backup/pull/1531
+- docs(setup): update default config by @tricki in https://github.com/spatie/laravel-backup/pull/1540
+- Use empty string for Discord defaults by @bbashy in https://github.com/spatie/laravel-backup/pull/1544
+- Improve output messages for backup:monitor command by @intrepidws in https://github.com/spatie/laravel-backup/pull/1560
+
+### New Contributors
+
+- @naveensrinivasan made their first contribution in https://github.com/spatie/laravel-backup/pull/1529
+- @dependabot made their first contribution in https://github.com/spatie/laravel-backup/pull/1532
+- @tricki made their first contribution in https://github.com/spatie/laravel-backup/pull/1540
+- @bbashy made their first contribution in https://github.com/spatie/laravel-backup/pull/1544
+
+**Full Changelog**: https://github.com/spatie/laravel-backup/compare/8.1.2...8.1.3
+
 ## 8.1.2 - 2022-04-08
 
 ## What's Changed
