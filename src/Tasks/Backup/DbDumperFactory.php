@@ -53,7 +53,9 @@ class DbDumperFactory
             $dbDumper->setAuthenticationDatabase($dbConfig['dump']['mongodb_user_auth'] ?? '');
         }
 
-        if (isset($dbConfig['port'])) {
+        if (isset($dbConfig['connect_via_port'])) {
+            $dbDumper = $dbDumper->setPort($dbConfig['connect_via_port']);
+        } elseif (isset($dbConfig['port'])) {
             $dbDumper = $dbDumper->setPort($dbConfig['port']);
         }
 
